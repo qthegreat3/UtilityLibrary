@@ -1,6 +1,13 @@
-	public ArrayList<int> getListOfPrimesToASpecificNumber(int bound)
+package com.harquin.math;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class GetListOfPrimesFrom1ToASpecificNumber {
+	
+	public List<Long> getListOfPrimesToASpecificNumber(int bound)
 	{
-		ArrayList<Long> primeFactorList = new ArrayList<Long>();
+		List<Long> primeFactorList = new ArrayList<Long>();
 		
 		for (long factorIndex = 2; factorIndex < bound; factorIndex++)
 		{
@@ -21,3 +28,4 @@
 		
 		return primeFactorList;
 	}
+}

@@ -1,3 +1,5 @@
+package com.harquin.objects;
+
 public class Pair<T, T2>
 {
 	private T _left;
