@@ -1,6 +1,7 @@
 package com.harquin.files;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -93,5 +94,30 @@ public class FileUtils {
 	public static void appendTextToFile(String fileName, List<String> text)
 	{
 		writeTextToFile(fileName, text, true);
+	}
+	
+	public static void deleteFiles(String fileName, boolean isRecursiveDelete, String extensionToDelete)
+	{
+		File fileToDelete = new File(fileName);
+		
+		for (File file : fileToDelete.listFiles())
+		{
+			if(file.isDirectory() && isRecursiveDelete)
+			{
+				deleteFiles(file.getAbsolutePath(), isRecursiveDelete, extensionToDelete);
+			}
+			else
+			{
+				if(file.getName().contains(extensionToDelete))
+				{
+					file.delete();
+				}
+			}
+		}
+	}
+	
+	public static void deleteFiles(String fileName, String extensionToDelete)
+	{
+		deleteFiles(fileName, true, extensionToDelete);
 	}
 }
